@@ -20,9 +20,9 @@ WHERE `period` = "I semestre"
 AND `year` = 1;
 
 5.
-SELECT * 
+SELECT *
 FROM `exams` 
-WHERE `hour` > "14:00:00"
+WHERE HOUR(`hour`) >= HOUR("14:00:00")
 AND `date` = "2020-06-20";
 
 6.
