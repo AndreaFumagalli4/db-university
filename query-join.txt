@@ -64,4 +64,5 @@ JOIN `exams`
 ON `exam_student`.`exam_id` = `exams`.`id`
 JOIN `courses`
 ON `exams`.`course_id` = `courses`.`id`
-GROUP BY `students`.`name`, `students`.`surname`, `courses`.`name`;
+GROUP BY `students`.`id`, `courses`.`id`
+HAVING MAX(`exam_student`.`vote`) >= 18;
