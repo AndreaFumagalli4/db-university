@@ -56,3 +56,12 @@ WHERE `departments`.`name` = "Dipartimento di Matematica";
 
 BONUS:
 7.
+SELECT `students`.`name`, `students`.`surname`, `courses`.`name`, COUNT(`exam_student`.`vote`) AS `tentativi`
+FROM `students`
+JOIN `exam_student`
+ON `students`.`id` = `exam_student`.`student_id`
+JOIN `exams`
+ON `exam_student`.`exam_id` = `exams`.`id`
+JOIN `courses`
+ON `exams`.`course_id` = `courses`.`id`
+GROUP BY `students`.`name`, `students`.`surname`, `courses`.`name`;
